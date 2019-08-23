@@ -7,6 +7,12 @@ import '../../App.css'
 
 const timeoutLength = 150000
 
+const ButtonPosition = {
+    position:"absolute",
+    top:"50%",
+    left:"50%"
+}
+
 class Delete extends React.Component {
     
     state = { isOpen: false }
@@ -40,7 +46,7 @@ class Delete extends React.Component {
     return (
         <Modal trigger= {
             <Button 
-            style={{position:"absolute", top:"20px"}}
+            style={ButtonPosition}
            basic color="teal"
            size="huge"
            animated='vertical'>

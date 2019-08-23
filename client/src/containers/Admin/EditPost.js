@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 import {Button ,Form, Grid, Header, TextArea, Popup} from 'semantic-ui-react'
-import {getCar, updateCar,deleteCar, clearOnDelete} from '../../actions'
+import {getCar, updateCar,clearOnDelete} from '../../actions'
 import Layout from '../../hoc/layout'
 import {connect} from 'react-redux'
-//import EditButton from '../../Widget/EditButton'
 import { NavLink } from 'react-router-dom'
 import '../../App.css'
+
 const timeoutLength = 15000
 
 class EditPost extends PureComponent {
@@ -43,6 +43,7 @@ class EditPost extends PureComponent {
     clearTimeout(this.timeout)
   }
 
+
     handleInput = (event, name)=> {
         const newFormdata = {
             ...this.state.formdata
@@ -58,19 +59,6 @@ class EditPost extends PureComponent {
     submitForm = (e) => {
         e.preventDefault()
         this.props.dispatch(updateCar(this.state.formdata))
-    }
-
-    deletePost = () =>{
-        this.props.dispatch(deleteCar(this.props.match.params.id))
-    }
-
-    redirectUser = () =>{
-        setTimeout(()=>(
-            <div>
-                This post was deleted
-            </div>
-            
-        ), 2000)
     }
 
     UNSAFE_componentWillMount(){
@@ -113,19 +101,6 @@ class EditPost extends PureComponent {
        
        
         <Grid.Column style={{ maxWidth: 450 }}>  
-        {/* {
-                cars.updateCar ?
-                <div className="success">
-                Updated successfully <Link to={`/cars/${cars.car._id}`} >
-                    click to view update
-
-                </Link>
-
-                </div>     
-               
-                :null
-            }       */}
-       
             
             <Header  style={{paddingTop:"3em"}} as='h2' color='teal' textAlign='center'>
                 Edit Review       
@@ -285,34 +260,6 @@ class EditPost extends PureComponent {
                               
 
                 </Form>
-                <Button style={{marginTop:"2em"}} color='red' fluid size='large' onClick={this.deletePost}>
-                       Delete Car Details
-                </Button>
-                {
-                        cars.updateCar ? 
-                        /* <Message
-                        as={NavLink}
-                        to={`/cars/${cars.car._id}`}
-                        success
-                        header='Post edited successfully'
-                        content="Click to view the edited post"                        
-                        /> */
-                        <div>                                                            
-
-                        </div>
-                       
-                        :null
-                    }
-                    {
-                        cars.postDeleted ? 
-                       
-                        
-                        <div>
-                            {this.redirectUser()}
-                        </div>
-                                     
-                        :null
-                    }
             </Grid.Column>
             </Grid>
 

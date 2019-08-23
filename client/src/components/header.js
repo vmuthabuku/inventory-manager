@@ -35,7 +35,7 @@ class Layout extends Component {
           <Menu.Item
             name='logout'
             as={NavLink}
-            to="/logout" 
+            to="/" 
             active={activeItem === 'logout'}
             onClick={this.handleItemClick}
           />
