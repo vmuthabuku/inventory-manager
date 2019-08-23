@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img {
+    height: auto;
+    width: auto;
+    height: 650px;
+    width: 100%;
+}
+
+.success {
+    color: green;
+    font-size: 29px;
+}
+
+.button-edits {
+    margin-top: 1em;
+}
+
+.modal {
+    position: absolute;
+    top: 10%;
+}
