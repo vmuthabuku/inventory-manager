@@ -6,12 +6,11 @@ import Layout from '../../hoc/layout'
 
 const Home = () => {
     return (
-        <Layout>
-            <Container>
-                <HomeContainer/>  
-            </Container>            
-        </Layout>
-                  
+        <Container fluid>
+            <Layout>
+                <HomeContainer/>         
+            </Layout>
+        </Container>                  
 
     );
 }

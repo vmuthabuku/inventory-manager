@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import {Button ,Form, Grid, Header, TextArea, Popup} from 'semantic-ui-react'
-import {getCar, updateCar,clearOnDelete} from '../../actions'
+import {getCar, updateCar} from '../../actions'
 import Layout from '../../hoc/layout'
 import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -86,9 +86,7 @@ class EditPost extends PureComponent {
         })
     }
 
-    UNSAFE_componentWillUnmount(){
-        this.props.dispatch(clearOnDelete())
-    }
+   
 
 
     render() {

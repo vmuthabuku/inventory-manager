@@ -1,12 +1,12 @@
 import React from 'react';
-import { Image,Segment, Grid, Header,Button, Icon, Card} from 'semantic-ui-react'
+import { Image,Segment, Grid, Header,Button, Icon, Card, Container} from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import '../../App.css'
 
 
 const CarTemplate = (cars) => {
     return (
-        <div>
+        <Container fluid>
             <Image src={cars.car.image} className="img"  />
         <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
@@ -98,7 +98,7 @@ const CarTemplate = (cars) => {
         
     </Segment>
             
-        </div>
+        </Container>
     );
 }
 

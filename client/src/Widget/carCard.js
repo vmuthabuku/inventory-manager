@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import '../App.css'
 
 const CarCard = (item) => (
-    <Card
+      <Card
      as={NavLink}
      to={`/cars/${item._id}`}
      color="teal"    
@@ -25,6 +25,7 @@ const CarCard = (item) => (
     
   </Card>    
     
+  
  
 )
 

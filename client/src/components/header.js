@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Input, Menu } from 'semantic-ui-react'
+import { Input, Menu, Container } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
+
 
 
 class Layout extends Component {
@@ -12,7 +13,8 @@ class Layout extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu secondary>
+      <Container fluid>
+           <Menu secondary>
         <Menu.Item 
         name='home'
         as={NavLink}
@@ -41,6 +43,8 @@ class Layout extends Component {
           />
         </Menu.Menu>
       </Menu>
+      </Container>
+     
       
     )
   }

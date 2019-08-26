@@ -3,13 +3,19 @@ import { connect } from 'react-redux'
 import { getCars } from '../actions'
 import CarCard from './../Widget/carCard'
 import Guide from './../Widget/Guide'
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Button, Container } from 'semantic-ui-react'
 import '../App.css'
 
+
+
+
+const style = {
+    marginTop:"1em"
+}
 class HomeContainer extends Component {
 
     componentWillMount(){
-        this.props.dispatch(getCars(8,0,"desc"))      
+        this.props.dispatch(getCars(4,0,"desc"))      
     }
 
     renderItems = (cars) =>(
@@ -25,9 +31,16 @@ class HomeContainer extends Component {
         null        
     )
 
+    loadmore = () =>{
+        let count = this.props.cars.list.length
+        this.props.dispatch(getCars(4,count,"desc",this.props.cars.list ))
+
+    }
+
     render() {
         return (
-            <Grid>
+            <Container style={style} fluid>
+                <Grid>
                 <Grid.Column width={1}>
 
                 </Grid.Column>
@@ -35,6 +48,10 @@ class HomeContainer extends Component {
                 <Card.Group itemsPerRow={2}>
                     {this.renderItems(this.props.cars)}                          
                 </Card.Group>
+                <Button onClick={this.loadmore} style={style} animated='fade' color="teal" basic fluid>
+                    <Button.Content visible>Load More</Button.Content>
+                    <Button.Content hidden>.......</Button.Content>
+                </Button>
                     
                 </Grid.Column>
                 <Grid.Column width={3}>
@@ -42,6 +59,9 @@ class HomeContainer extends Component {
                     
                 </Grid.Column>
             </Grid>
+
+            </Container>
+            
             
         )
     }
